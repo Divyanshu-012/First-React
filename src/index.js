@@ -2,6 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './index.css';
+const title = 'The HouseMaid';
+const img = './images/book1.jpg';
+
+//parameters 
+// const someFunction = (param1, param2) => {
+//     console.log(param1, param2)
+
+// };
+
+//arguments
+// someFunction('job', 'developer');
+
+
 
 
 
@@ -13,41 +26,35 @@ import './index.css';
 function BookList() {
     return (
         <section className='booklist'>
-            <Book />
-            <Book />
-            <Book />
-            <Book />
-
-
+            <Book job="developer" />
+            <Book title='random title' number={22} />
 
         </section>
     )
 
 
 }
-
-const Book = () => {
+// props used to give  different data to different elements in a website w/o repeating it to the multiple elements 
+const Book = (props) => {
+    console.log(props);
     return (
         <article className='book'>
-            <Image />
-            <Title />
-            <Author />
+            <img
+                src={img}
+                alt='The HouseMaid'
+            />
+            <h2> {title}</h2>
+            <h4 >Freida McFadden</h4>
+            <p>{props.job}</p>
+            <p>{props.title}</p>
+            <p>{props.number}</p>
+
 
         </article>
     );
 };
 
-const Image = () => (
-    <img
-        src='https://images-na.ssl-images-amazon.com/images/I/81AHTyq2wVL._AC_UL300_SR300,200_.jpg'
-        alt='The HouseMaid'
-    />
-);
-const Title = () => <h2> The HouseMaid</h2>;
-const Author = () => {
-    return <h4>Freida McFadden</h4>;
 
-}
 
 
 
